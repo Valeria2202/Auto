@@ -1,3 +1,4 @@
+# -- coding: utf-8 --
 """
 URL configuration for orm_shop project.
 
@@ -21,9 +22,11 @@ from django.urls import path
 
 from main.views import cars_list_view, car_details_view, sales_by_car
 
+from main.views import home_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home_view, name='home'),
     path('cars/', cars_list_view, name='list'),
     path('cars/<int:car_id>/', car_details_view, name='details'),
     path('cars/<int:car_id>/sales/', sales_by_car, name='sales')
